@@ -76,4 +76,9 @@ If you would like to contribute to this project, please fork the repository and 
 
 - [Leaflet](https://leafletjs.com/): An open-source JavaScript library for interactive maps.
 
+## Contributors:
+- [Rayaan Khan](https://github.com/rayaankhan)
+- [Yash Shivhare](https://github.com/YashShivhare007)
+- [Santhoshini Thota](https://github.com/santhoshinithota)
+
 ---
