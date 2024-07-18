@@ -47,7 +47,7 @@ function App() {
           <ul>
             {places.map((place, index) => (
               <li key={index}>
-                <a href="#">{place.name}</a>
+                <a href="https://www.google.com">{place.name}</a>
               </li>
             ))}
           </ul>
