@@ -34,7 +34,6 @@ function Navbar() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
   const openSearch = () => {
     setIsSearchOpen(true);
   };
