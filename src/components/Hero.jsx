@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import { FaArrowRight } from "react-icons/fa";
 import Map from "./Map";
 import Footer from "./Footer";
+import Chatbot from "./Chatbot";
 
 const bgImage = {
   backgroundImage: `url(${BgImage})`,
@@ -32,6 +33,7 @@ const Hero = () => {
         <Footer/>
       </div>
       </section>
+      <Chatbot />
     </main>
   );
 };
