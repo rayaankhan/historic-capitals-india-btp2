@@ -52,7 +52,7 @@ function Map() {
       const latLng = marker.getLatLng();
       
       setMapCenter(latLng);
-      setMapZoom(5);
+      setMapZoom(6);
 
       marker.openPopup();
     } else {
@@ -77,7 +77,7 @@ function Map() {
         <MapContainer
           center={mapCenter}
           zoom={mapZoom}
-          style={{ height: "600px", width: "100%" }}
+          style={{ height: "700px", width: "100%" }}
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -93,6 +93,9 @@ function Map() {
                   key={index}
                   position={coordinates}
                   ref={(el) => (markersRef.current[index] = el)} // Store marker reference
+                  eventHandlers={{
+                    click: () => handlePlaceClick(index), // Handle click event
+                  }}
                 >
                   <Popup>{place.city}</Popup>
                 </Marker>

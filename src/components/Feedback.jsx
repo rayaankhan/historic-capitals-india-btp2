@@ -1,53 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 function Feedback({ onClose }) {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [status, setStatus] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("");
 
   useEffect(() => {
     // Load SMTP.js dynamically
-    const script = document.createElement('script');
-    script.src = 'https://smtpjs.com/v3/smtp.js';
+    const script = document.createElement("script");
+    script.src = "https://smtpjs.com/v3/smtp.js";
     script.async = true;
     document.body.appendChild(script);
   }, []);
 
   const handleFeedback = async (e) => {
     e.preventDefault();
-
-    if (!window.Email) {
-      setStatus('Failed to load Email service');
-      return;
+    const res = await fetch("http://localhost:3000/sendmail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, message }),
+    });
+    if (res.ok) {
+      setStatus("Feedback sent successfully!");
     }
 
-    try {
-      window.Email.send({
-        Host: 'smtp.gmail.com',
-        Username: 'shivhareyash007@gmail.com', // Your Gmail address
-        Password: 'hzhl zdgi tqff wfld', // Replace with your Gmail app password
-        To: 'r.shashigupta@gmail.com', // Replace with recipient email address
-        From: email,
-        Subject: 'Feedback from Website',
-        Body: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-      })
-      .then((message) => {
-        setStatus('Feedback sent successfully');
-        setName('');
-        setEmail('');
-        setMessage('');
-      })
-      .catch((error) => {
-        console.error('Error sending feedback:', error);
-        setStatus('Error sending feedback');
-      });
-    } catch (error) {
-      console.error('Error sending feedback:', error);
-      setStatus('Error sending feedback');
-    }
+    setName("");
+    setEmail("");
+    setMessage("");
+
+    setTimeout(() => {
+      setStatus("");
+    }, 5000);
   };
 
   return (
@@ -65,7 +53,10 @@ function Feedback({ onClose }) {
           onSubmit={handleFeedback}
         >
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="name"
+            >
               Name
             </label>
             <input
@@ -78,7 +69,10 @@ function Feedback({ onClose }) {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="email"
+            >
               Email
             </label>
             <input
@@ -91,7 +85,10 @@ function Feedback({ onClose }) {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="message"
+            >
               Message
             </label>
             <textarea
