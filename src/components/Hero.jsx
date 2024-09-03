@@ -13,7 +13,7 @@ const bgImage = {
   backgroundRepeat: "no-repeat",
 };
 
-const Hero = () => {
+const Hero = ({ sharedVariable, setSharedVariable }) => {
   return (
     <main style={bgImage} className="overflow-hidden">
       <section className="relative min-h-[100vh] lg:min-h-[100vh] w-full overflow-hidden flex flex-col justify-center">
@@ -25,7 +25,7 @@ const Hero = () => {
 
         {/* Map Content */}
         <div className="mt-24 h-[70vh] z-0">
-          <Map />
+          <Map sharedVariable={sharedVariable} setSharedVariable={setSharedVariable} />
         </div>
       {/* footer content */}
       <div className="z-20">
@@ -33,7 +33,7 @@ const Hero = () => {
         <Footer/>
       </div>
       </section>
-      <Chatbot />
+      {/* <Chatbot /> */}
     </main>
   );
 };

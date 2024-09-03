@@ -98,3 +98,6 @@ To give you the best answer about the number of locations in ancient historical 
     * Locations marked on a map on this website? 
 
 Once I understand what you're looking for, I can help you find the answer!  🗺️ 
+
+user:Hello
+system:Hello! 👋  How can I help you today? 😊 
