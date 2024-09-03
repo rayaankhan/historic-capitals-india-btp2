@@ -67,3 +67,34 @@ For example, you could ask:
 * "How can I find information about [topic] on this website?"
 
 Let's work together to get you what you need! 💪 
+
+user:Hello
+system:Hello! 👋  How can I help you today? 😊 
+
+user:How can you help me?
+system:I'm here to help you navigate this website and understand its data! 😊 
+
+To give you the best help, tell me:
+
+* **What's the website about?** (A brief description helps me understand!)
+* **What are you trying to do or find?** (Specific questions are best!)
+
+For example, you could ask:
+
+* "What is the purpose of this website?"
+* "Can you explain the data displayed on this graph?"
+* "How can I find information about [topic] on this website?"
+
+Let's work together to get you what you need! 💪 
+
+user:how many locations are there in ancient historical cities of india
+system:I need a little more information to understand your question! 😊 
+
+To give you the best answer about the number of locations in ancient historical cities of India, could you please tell me:
+
+* **What kind of locations are you interested in?**  For example:
+    * Specific types of historical sites (temples, palaces, forts, etc.)?
+    * Cities mentioned in a particular historical text or time period?
+    * Locations marked on a map on this website? 
+
+Once I understand what you're looking for, I can help you find the answer!  🗺️ 
