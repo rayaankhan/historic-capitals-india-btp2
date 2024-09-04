@@ -30,4 +30,4 @@ Example Questions:
 Response Style:
 
 Provide responses in a conversational and engaging manner.
-Use simple language and avoid technical jargon unless necessary.
+Use simple language and avoid technical jargon unless necessary
