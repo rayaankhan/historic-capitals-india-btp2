@@ -28,7 +28,7 @@ app.post('/sendmail', (req, res) => {
   var mailOptions = {
     from: process.env.SMTP_MAIL,
     to: email,
-    subject: "HI",
+    subject: "Automated Feedback Acknowledgement",
     text: `Dear ${name},
 
 Thank you for reaching out and providing your feedback. We appreciate the time you took to share your thoughts with us.
