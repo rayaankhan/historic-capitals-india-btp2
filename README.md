@@ -75,6 +75,12 @@ We welcome contributions to enhance this project. To contribute:
 3. Make your changes and test them.
 4. Submit a pull request with a detailed description of your changes.
 
+## Contributors
+
+- **[Rayaan Khan](https://github.com/rayaankhan)**
+- **[Yash Shivhare](https://github.com/YashShivhare007)**
+- **[Santhoshini Thota](https://github.com/santhoshinithota)**
+
 ## License
 
 This project is licensed under the MIT License. For more details, please refer to the [LICENSE](LICENSE) file.
