@@ -15,7 +15,7 @@ function Map({ sharedVariable, setSharedVariable }) {
   };
 
   useEffect(() => {
-    fetch("/data/ancient/location.json")
+    fetch("https://historic-capitals-india-btp2.onrender.com/ancient/location")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -23,7 +23,7 @@ function Map({ sharedVariable, setSharedVariable }) {
         return response.json();
       })
       .then((data) => {
-        setLocation(data); // Store the entire data object
+        setLocation(data);
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
@@ -31,7 +31,7 @@ function Map({ sharedVariable, setSharedVariable }) {
   }, []); // Ensure this effect runs only once
 
   useEffect(() => {
-    fetch("/data/ancient/ancient.json")
+    fetch("https://historic-capitals-india-btp2.onrender.com/ancient/data")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

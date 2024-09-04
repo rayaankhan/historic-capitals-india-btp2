@@ -22,6 +22,40 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+app.get('/ancient/data', (req, res) => {
+  fetch("/data/ancient/ancient.json")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+      res.status(500).send("Error fetching data");
+    });
+});
+
+app.get('/ancient/location', (req, res) => {
+  fetch("/data/ancient/location.json")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+      res.status(500).send("Error fetching data");
+    });
+});
+
 // Define routes
 app.post('/sendmail', (req, res) => {
   var { name, email, message } = req.body;
