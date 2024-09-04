@@ -1,41 +1,43 @@
-# Historical Capitals
+# Historical Capitals of India
 
 ## Project Overview
 
-**Historical Capitals** is an interactive web application designed to showcase the rich history of ancient capitals through an engaging, map-based interface. Users can explore historical capitals via a dynamic Leaflet map on the left side of the screen, while a scrollable list of these capitals is available on the right. Interaction is seamless: clicking on any map marker triggers a popup with the capital's name, while selecting a capital from the list brings up its corresponding map marker and displays detailed information below the map. Additionally, the application features a chatbot interface powered by a fine-tuned Gemini-pro-1.5 LLM and a feedback form that automatically sends a confirmation email to users.
+**Historical Capitals** is an engaging web application designed to explore the history of ancient capitals through an interactive map-based interface. Users can delve into historical data via a dynamic Leaflet map on the left side of the screen, while a scrollable list of capitals is available on the right. The application provides a seamless experience: clicking a map marker opens a popup with the capital's name, and selecting a capital from the list highlights its marker on the map and shows detailed information below. The app also features a chatbot powered by a fine-tuned Gemini-pro-1.5 LLM and a feedback form with automated email acknowledgment.
 
 ## Key Features
 
-- **Interactive Map**: A Leaflet map displays markers representing historical capitals, enhancing user engagement through visual exploration.
-- **Synchronized List and Map**: Users can click on either map markers or list items to see the corresponding details, ensuring a cohesive browsing experience.
-- **Detailed Information Display**: Detailed historical information about each capital is shown below the map upon selection.
-- **Chatbot Interface**: A chatbot powered by a fine-tuned Gemini-pro-1.5 LLM assists users with inquiries related to the site’s content.
-- **Feedback Mechanism**: A feedback form allows users to provide suggestions, with an automated email response system in place for acknowledgment.
+- **Interactive Map:** Explore historical capitals through a Leaflet map with interactive markers.
+- **Synchronized List and Map:** Seamless interaction between the map markers and the list of capitals.
+- **Detailed Information Display:** Detailed historical information about each capital displayed below the map.
+- **Chatbot Interface:** Advanced AI-driven chatbot for user queries, powered by Gemini API and LangChain.
+- **Feedback Mechanism:** Automated email response system for user feedback.
 
 ## Technology Stack
 
 ### Frontend
-- **[React.js](https://react.dev/)**: A powerful JavaScript library for building interactive user interfaces with a component-based architecture. It allows for dynamic rendering and efficient updates.
+- **[React.js](https://react.dev/):** A JavaScript library for building interactive user interfaces with efficient rendering and component-based architecture.
 
 ### Backend
-- **[Node.js](https://nodejs.org/en/)**: A high-performance JavaScript runtime built on Chrome's V8 engine, ideal for scalable server-side applications.
-- **[Flask](https://flask.palletsprojects.com/en/3.0.x/)**: A minimalist Python web framework that simplifies the development of web applications with a straightforward approach.
+- **[Node.js](https://nodejs.org/en/):** A scalable JavaScript runtime for server-side applications, known for its performance and efficiency.
+- **[Flask](https://flask.palletsprojects.com/en/3.0.x/):** A minimalist Python web framework for developing web applications with ease.
 
 ### Mapping
-- **[Leaflet](https://leafletjs.com/)**: An open-source JavaScript library for creating interactive maps. It provides an easy way to visualize and interact with geographical data, making it perfect for displaying historical capitals.
+- **[Leaflet](https://leafletjs.com/):** An open-source library for creating interactive maps, ideal for visualizing geographical data.
 
 ### Email Service
-- **[SMTP](https://www.smtp.com/resources/api-documentation/)**: The standard protocol for sending emails over the internet, used here to automate the process of sending feedback acknowledgments to users.
+- **[SMTP](https://www.smtp.com/resources/api-documentation/):** Standard protocol for sending emails, used for automating feedback acknowledgments.
 
 ### Chatbot
-- **[Gemini API](https://ai.google.dev/)**: Google’s cutting-edge AI technology for natural language understanding and generation, enhancing user interaction through intelligent responses.
-- **[LangChain](https://www.langchain.com/)**: A framework designed to simplify the integration of large language models into applications, offering tools for prompt engineering, data integration, and model management.
+- **[Gemini API](https://ai.google.dev/):** Google’s advanced language and multimodal AI models for intelligent user interactions.
+- **[LangChain](https://www.langchain.com/):** Framework for integrating large language models into applications, offering tools for prompt engineering and model management.
 
 ## Getting Started
 
 ### Prerequisites
 
-Ensure that Python-3, Node JS, Flask is installed on your device
+- **Python 3.x**: Ensure Python 3 is installed on your device.
+- **Node.js**: Ensure Node.js is installed for running the frontend.
+- **Flask**: Ensure Flask is installed for the backend API.
 
 ### Installation Instructions
 
@@ -46,7 +48,7 @@ Ensure that Python-3, Node JS, Flask is installed on your device
     cd historic-capitals-india-btp2
     ```
 
-2. **Running the Backend Server:**
+2. **Setup and Run the Backend Server:**
    - **Feedback Server:**
    ```bash
    cd backend
@@ -59,18 +61,30 @@ Ensure that Python-3, Node JS, Flask is installed on your device
    python3 chatbot.py
    ```
 
-3. **Running the Frontend:**
+3. **Setup and Run the Frontend:**
    ```bash
    npm install
    npm run dev
    ```
 
-## Contribution Guidelines
+## Contributing
 
-We welcome contributions to enhance the project. If you'd like to contribute, please fork the repository, create a new branch, and submit a pull request with your changes.
+We welcome contributions to enhance this project. To contribute:
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes and test them.
+4. Submit a pull request with a detailed description of your changes.
 
 ## License
 
-This project is licensed under the MIT License. For more details, refer to the [LICENSE](LICENSE) file.
+This project is licensed under the MIT License. For more details, please refer to the [LICENSE](LICENSE) file.
+
+## Contact
+
+For any inquiries or feedback, please contact us at [rayaan.khan@students.iiit.ac.in](mailto:rayaan.khan@students.iiit.ac.in).
+
+## Acknowledgments
+
+- Special thanks to the open-source communities and tools that made this project possible.
 
 ---
