@@ -55,7 +55,8 @@ function Map({ sharedVariable, setSharedVariable }) {
       setMapCenter(latLng);
       setMapZoom(6);
       console.log("here", ancientData[0]['information'])
-      setSharedVariable({"information": ancientData[index]['information'], "location": ancientData[index]['city'], "era": ancientData[index]['year']})
+      // setSharedVariable({"information": ancientData[index]['information'], "location": ancientData[index]['city'], "era": ancientData[index]['year']})
+      setSharedVariable(ancientData[index])
       marker.openPopup();
     } else {
       console.error("Marker not found at index:", index);
@@ -121,9 +122,9 @@ function Map({ sharedVariable, setSharedVariable }) {
         </div>
         <button className="z-30 md:hidden absolute top-1/2 -left-10 transform -translate-y-1/2 bg-gray-900 text-white p-2 rounded" onClick={toggleSidebar}>{isSidebarVisible ? ">" : "<"}</button>
         <div className="places-list px-4 overflow-y-auto h-5/6">
-          <ul className="space-y-2">
+          <ul className="space-y-2 ">
             {ancientData.map((place, index) => (
-              <li key={index} className="text-black">
+              <li key={index} className="text-black hover:scale-105">
                 <a href="#" onClick={() => handlePlaceClick(index)}>
                   {index + 1}. {place.city}
                 </a>
