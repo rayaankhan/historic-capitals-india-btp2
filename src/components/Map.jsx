@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css"; // Ensure Leaflet's CSS is imported
+import "leaflet/dist/images/marker-shadow.png";
+import "leaflet/dist/images/marker-icon-2x.png";
 
 function Map({ sharedVariable, setSharedVariable }) {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
@@ -54,8 +56,6 @@ function Map({ sharedVariable, setSharedVariable }) {
 
       setMapCenter(latLng);
       setMapZoom(6);
-      console.log("here", ancientData[0]['information'])
-      // setSharedVariable({"information": ancientData[index]['information'], "location": ancientData[index]['city'], "era": ancientData[index]['year']})
       setSharedVariable(ancientData[index])
       marker.openPopup();
     } else {
