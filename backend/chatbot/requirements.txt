@@ -1,9 +1,0 @@
-langserve
-fastapi
-uvicorn
-sse_starlette
-langchain
-python-dotenv
-langchain_google_genai
-flask
-flask_cors
