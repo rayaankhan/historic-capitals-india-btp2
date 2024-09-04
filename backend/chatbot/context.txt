@@ -123,3 +123,6 @@ For example, you could ask:
 * "How can I find information about [topic] on this website?"
 
 Let's work together to get you what you need! 💪 
+
+user:Hi
+system:Hi there! 👋 How can I help you today? 😊 

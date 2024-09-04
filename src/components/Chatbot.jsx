@@ -52,7 +52,7 @@ const Chatbot = () => {
       {!isOpen && (
         <button
           onClick={toggleChat}
-          className="fixed bottom-4 right-4 p-4 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 transition-colors"
+          className="fixed bottom-4 right-4 p-4 bg-yellow-800 text-white rounded-full shadow-lg hover:bg-yellow-900 transition-colors"
         >
           <span className="text-xl">💬</span>
         </button>
@@ -61,7 +61,7 @@ const Chatbot = () => {
       {/* Chat Window */}
       {isOpen && (
         <div className="fixed bottom-4 right-4 w-80 h-96 bg-white border border-gray-300 rounded-lg shadow-lg flex flex-col">
-          <div className="flex items-center justify-between bg-blue-500 p-3 text-white rounded-t-lg">
+          <div className="flex items-center justify-between bg-yellow-700 p-3 text-white rounded-t-lg">
             <h3 className="text-lg font-semibold">Chatbot</h3>
             <button
               onClick={toggleChat}
@@ -93,7 +93,7 @@ const Chatbot = () => {
             />
             <button
               type="submit"
-              className="ml-2 bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
+              className="ml-2 bg-yellow-700 text-white p-2 rounded-md hover:bg-yellow-900"
             >
               Send
             </button>
