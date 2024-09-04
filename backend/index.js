@@ -5,6 +5,8 @@ const port = process.env.PORT || 3000;
 import cors from 'cors';
 import nodemailer from 'nodemailer';
 import 'dotenv/config'; // Load environment variables from .env file
+import fs from 'fs';
+import path from 'path';
 
 // Middleware
 app.use(cors());
@@ -22,39 +24,49 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+import { fileURLToPath } from 'url';
+
+// Create __filename and __dirname equivalents
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 app.get('/ancient/data', (req, res) => {
-  fetch("/data/ancient/ancient.json")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((error) => {
-      console.error("There was a problem with the fetch operation:", error);
-      res.status(500).send("Error fetching data");
-    });
+  const filePath = path.join(__dirname, 'data', 'ancient', 'ancient.json');
+  
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error("Error reading the file:", err);
+      return res.status(500).send("Error fetching data");
+    }
+    
+    try {
+      const jsonData = JSON.parse(data);
+      res.json(jsonData);
+    } catch (parseError) {
+      console.error("Error parsing JSON:", parseError);
+      res.status(500).send("Error parsing data");
+    }
+  });
 });
 
 app.get('/ancient/location', (req, res) => {
-  fetch("/data/ancient/location.json")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((error) => {
-      console.error("There was a problem with the fetch operation:", error);
-      res.status(500).send("Error fetching data");
-    });
-});
+  const filePath = path.join(__dirname, 'data', 'ancient', 'location.json');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error("Error reading the file:", err);
+      return res.status(500).send("Error fetching data");
+    }
+
+    try {
+      const jsonData = JSON.parse(data);
+      res.json(jsonData);
+    } catch (parseError) {
+      console.error("Error parsing JSON:", parseError);
+      res.status(500).send("Error parsing data");
+    }
+  }
+)});
 
 // Define routes
 app.post('/sendmail', (req, res) => {
