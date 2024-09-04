@@ -53,6 +53,3 @@ def run_function():
     message = data.get('message', '')
     output = get_response(message)
     return jsonify({'reply': output.content})
-
-if __name__ == '__main__':
-    app.run(port=5000)
