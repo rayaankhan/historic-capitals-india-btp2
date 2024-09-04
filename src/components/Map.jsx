@@ -1,8 +1,21 @@
 import { useState, useEffect, useRef } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css"; // Ensure Leaflet's CSS is imported
 import "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/images/marker-icon-2x.png";
+
+import markerIcon from "leaflet/dist/images/marker-icon-2x.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
+
+const customIcon = new L.Icon({
+  iconUrl: markerIcon, // Path to your custom marker image
+  iconSize: [25, 41], // Custom icon size
+  iconAnchor: [12, 41], // Position of the icon relative to the coordinates
+  shadowUrl: markerShadow, // Default shadow
+  shadowSize: [41, 41], // Size of the shadow
+  shadowAnchor: [12, 41], // Anchor point of the shadow (align it with the iconAnchor)
+});
 
 function Map({ sharedVariable, setSharedVariable }) {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
@@ -96,6 +109,7 @@ function Map({ sharedVariable, setSharedVariable }) {
                 <Marker
                   key={index}
                   position={coordinates}
+                  icon={customIcon}
                   ref={(el) => (markersRef.current[index] = el)} // Store marker reference
                   eventHandlers={{
                     click: () => handlePlaceClick(index), // Handle click event
