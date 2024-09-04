@@ -55,4 +55,4 @@ def run_function():
     return jsonify({'reply': output.content})
 
 if __name__ == '__main__':
-    app.run(debug=False, port=5000)
+    app.run(port=5000)
