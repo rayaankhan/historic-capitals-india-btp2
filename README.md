@@ -88,9 +88,3 @@ This project is licensed under the MIT License. For more details, please refer t
 ## Contact
 
 For any inquiries or feedback, please contact us at [rayaan.khan@students.iiit.ac.in](mailto:rayaan.khan@students.iiit.ac.in).
-
-## Acknowledgments
-
-- Special thanks to the open-source communities and tools that made this project possible.
-
----
