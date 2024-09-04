@@ -1,79 +1,66 @@
 # Historical Capitals
 
-## Project Description
+## Project Overview
 
-This project is a web application that displays a map with multiple pointers representing historical capitals. On the left side of the interface, there is a Leaflet map, and on the right side, there is a scrollable list containing the names of these capitals. Clicking on any pointer on the map opens a popup with the name of the capital. Similarly, clicking on a capital name in the list opens the corresponding popup on the map and displays detailed information about the capital in a box below the map.
+**Historical Capitals** is an interactive web application designed to showcase the rich history of ancient capitals through an engaging, map-based interface. Users can explore historical capitals via a dynamic Leaflet map on the left side of the screen, while a scrollable list of these capitals is available on the right. Interaction is seamless: clicking on any map marker triggers a popup with the capital's name, while selecting a capital from the list brings up its corresponding map marker and displays detailed information below the map. Additionally, the application features a chatbot interface powered by a fine-tuned Gemini-pro-1.5 LLM and a feedback form that automatically sends a confirmation email to users.
 
-## Features
+## Key Features
 
-- Leaflet map integration to display historical capitals.
-- Interactive pointers on the map with popups.
-- Scrollable list of capitals.
-- Synchronization between map pointers and list items.
-- Detailed information display for each capital.
+- **Interactive Map**: A Leaflet map displays markers representing historical capitals, enhancing user engagement through visual exploration.
+- **Synchronized List and Map**: Users can click on either map markers or list items to see the corresponding details, ensuring a cohesive browsing experience.
+- **Detailed Information Display**: Detailed historical information about each capital is shown below the map upon selection.
+- **Chatbot Interface**: A chatbot powered by a fine-tuned Gemini-pro-1.5 LLM assists users with inquiries related to the site’s content.
+- **Feedback Mechanism**: A feedback form allows users to provide suggestions, with an automated email response system in place for acknowledgment.
 
-## Tech Stack
+## Technology Stack
 
-- React.js: For building the user interface.
-- Leaflet: For integrating and displaying the map.
+- **[React.js](https://react.dev/)**: A JavaScript library for building dynamic user interfaces with a component-based architecture.
+- **[Node.js](https://nodejs.org/en/)**: A JavaScript runtime that facilitates server-side development, offering scalability and efficiency.
+- **[Flask](https://flask.palletsprojects.com/en/3.0.x/)**: A lightweight Python web framework for building robust web applications quickly and effectively.
+- **[Leaflet](https://leafletjs.com/)**: An open-source library for rendering interactive maps, used to visualize the locations of historical capitals.
+- **[Gemini API](https://ai.google.dev/)**: Google’s advanced language and multimodal AI models, leveraged for the chatbot interface to provide intelligent user interactions.
+- **[SMTP](https://www.smtp.com/resources/api-documentation/)**: A protocol for sending emails, used to automate user feedback acknowledgments.
 
 ## Getting Started
 
 ### Prerequisites
 
-Make sure you have Node.js and npm (or yarn) installed on your machine. You can download Node.js from [here](https://nodejs.org/).
+Ensure that you have Node.js and npm (or yarn) installed on your machine. Node.js can be downloaded from [here](https://nodejs.org/).
 
-### Installation
+### Installation Instructions
 
-1. Clone the repository:
+1. **Clone the Repository:**
 
     ```bash
     git clone https://github.com/rayaankhan/historic-capitals-india-btp2.git
     cd historic-capitals-india-btp2
     ```
 
-2. Install the dependencies:
+2. **Running the Backend Server:**
+   - **Feedback Server:**
+   ```bash
+   cd backend
+   node index.js
+   ```
+   - **Chatbot API:**
+   ```bash
+   cd backend/chatbot
+   pip3 install -r requirements.txt
+   python3 chatbot.py
+   ```
 
-    ```bash
-    npm install
-    # or
-    yarn install
-    ```
+3. **Running the Frontend:**
+   ```bash
+   npm install
+   npm run dev
+   ```
 
-### Running the Application
+## Contribution Guidelines
 
-To start the development server, run:
-
-```bash
-npm start
-# or
-yarn start
-```
-
-This will start the development server and open the application in your default browser. The app will automatically reload if you make changes to the code.
-
-### Building for Production
-
-To create a production build, run:
-
-```bash
-npm run build
-# or
-yarn build
-```
-
-This will create a `build` directory with the production build of your application.
+We welcome contributions to enhance the project. If you'd like to contribute, please fork the repository, create a new branch, and submit a pull request with your changes.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-## Contributing
-
-If you would like to contribute to this project, please fork the repository and submit a pull request.
-
-## Acknowledgements
-
-- [Leaflet](https://leafletjs.com/): An open-source JavaScript library for interactive maps.
+This project is licensed under the MIT License. For more details, refer to the [LICENSE](LICENSE) file.
 
 ---
