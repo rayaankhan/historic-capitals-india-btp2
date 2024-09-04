@@ -1,8 +1,8 @@
 # Historical Capitals of India
 
-## Project Overview
+## Project Overview - [Link](https://historicalindiancities.netlify.app/)
 
-**Historical Capitals** is an engaging web application designed to explore the history of ancient capitals through an interactive map-based interface. Users can delve into historical data via a dynamic Leaflet map on the left side of the screen, while a scrollable list of capitals is available on the right. The application provides a seamless experience: clicking a map marker opens a popup with the capital's name, and selecting a capital from the list highlights its marker on the map and shows detailed information below. The app also features a chatbot powered by a fine-tuned Gemini-pro-1.5 LLM and a feedback form with automated email acknowledgment.
+**Historical Capitals** is an engaging web application designed to explore the history of ancient capitals through an interactive map-based interface. Users can delve into historical data via a dynamic Leaflet map on the left side of the screen, while a scrollable list of capitals is available on the right. The application provides a seamless experience: clicking a map marker opens a popup with the capital's name, and selecting a capital from the list highlights its marker on the map and shows detailed information below. The app also features a chatbot powered by a fine-tuned Gemini-1.5-flash LLM and a feedback form with automated email acknowledgment.
 
 ## Key Features
 
@@ -30,6 +30,7 @@
 ### Chatbot
 - **[Gemini API](https://ai.google.dev/):** Google’s advanced language and multimodal AI models for intelligent user interactions.
 - **[LangChain](https://www.langchain.com/):** Framework for integrating large language models into applications, offering tools for prompt engineering and model management.
+- **[Gunicorn](https://gunicorn.org/):** Gunicorn is a popular Python WSGI HTTP server that efficiently handles multiple web requests simultaneously.
 
 ## Getting Started
 
