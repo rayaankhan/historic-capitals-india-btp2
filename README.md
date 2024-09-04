@@ -14,18 +14,28 @@
 
 ## Technology Stack
 
-- **[React.js](https://react.dev/)**: A JavaScript library for building dynamic user interfaces with a component-based architecture.
-- **[Node.js](https://nodejs.org/en/)**: A JavaScript runtime that facilitates server-side development, offering scalability and efficiency.
-- **[Flask](https://flask.palletsprojects.com/en/3.0.x/)**: A lightweight Python web framework for building robust web applications quickly and effectively.
-- **[Leaflet](https://leafletjs.com/)**: An open-source library for rendering interactive maps, used to visualize the locations of historical capitals.
-- **[Gemini API](https://ai.google.dev/)**: Google’s advanced language and multimodal AI models, leveraged for the chatbot interface to provide intelligent user interactions.
-- **[SMTP](https://www.smtp.com/resources/api-documentation/)**: A protocol for sending emails, used to automate user feedback acknowledgments.
+### Frontend
+- **[React.js](https://react.dev/)**: A powerful JavaScript library for building interactive user interfaces with a component-based architecture. It allows for dynamic rendering and efficient updates.
+
+### Backend
+- **[Node.js](https://nodejs.org/en/)**: A high-performance JavaScript runtime built on Chrome's V8 engine, ideal for scalable server-side applications.
+- **[Flask](https://flask.palletsprojects.com/en/3.0.x/)**: A minimalist Python web framework that simplifies the development of web applications with a straightforward approach.
+
+### Mapping
+- **[Leaflet](https://leafletjs.com/)**: An open-source JavaScript library for creating interactive maps. It provides an easy way to visualize and interact with geographical data, making it perfect for displaying historical capitals.
+
+### Email Service
+- **[SMTP](https://www.smtp.com/resources/api-documentation/)**: The standard protocol for sending emails over the internet, used here to automate the process of sending feedback acknowledgments to users.
+
+### Chatbot
+- **[Gemini API](https://ai.google.dev/)**: Google’s cutting-edge AI technology for natural language understanding and generation, enhancing user interaction through intelligent responses.
+- **[LangChain](https://www.langchain.com/)**: A framework designed to simplify the integration of large language models into applications, offering tools for prompt engineering, data integration, and model management.
 
 ## Getting Started
 
 ### Prerequisites
 
-Ensure that you have Node.js and npm (or yarn) installed on your machine. Node.js can be downloaded from [here](https://nodejs.org/).
+Ensure that Python-3, Node JS, Flask is installed on your device
 
 ### Installation Instructions
 
