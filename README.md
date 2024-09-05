@@ -2,36 +2,42 @@
 
 ## Project Overview - [Link](https://historical-indian-cities.netlify.app/)
 
-**Historical Capitals** is an engaging web application designed to explore the history of ancient capitals through an interactive map-based interface. Users can delve into historical data via a dynamic Leaflet map on the left side of the screen, while a scrollable list of capitals is available on the right. The application provides a seamless experience: clicking a map marker opens a popup with the capital's name, and selecting a capital from the list highlights its marker on the map and shows detailed information below. The app also features a chatbot powered by a fine-tuned Gemini-1.5-flash LLM and a feedback form with automated email acknowledgment.
+**Historical Capitals** is an interactive web application designed to explore the history of India's ancient capitals through a map-based interface. Users can explore historical data via a dynamic Leaflet map on the left side of the screen, while a scrollable list of capitals is available on the right. The application provides a seamless experience: clicking a map marker opens a popup with the capital's name, and selecting a capital from the list highlights its marker on the map and shows detailed information below. The app also features a chatbot powered by a fine-tuned Gemini-1.5-flash LLM and a feedback form with automated email acknowledgment.
 
 ## Key Features
 
 - **Interactive Map:** Explore historical capitals through a Leaflet map with interactive markers.
 - **Synchronized List and Map:** Seamless interaction between the map markers and the list of capitals.
 - **Detailed Information Display:** Detailed historical information about each capital displayed below the map.
-- **Chatbot Interface:** Advanced AI-driven chatbot for user queries, powered by Gemini API and LangChain.
+- **Chatbot Interface:** AI-powered chatbot for answering queries about historical capitals, powered by Gemini API and LangChain.
 - **Feedback Mechanism:** Automated email response system for user feedback.
 
 ## Technology Stack
 
 ### Frontend
-- **[React.js](https://react.dev/):** A JavaScript library for building interactive user interfaces with efficient rendering and component-based architecture.
+- **[React.js](https://react.dev/):** JavaScript library for building interactive user interfaces with efficient rendering and component-based architecture.
 
 ### Backend
-- **[Node.js](https://nodejs.org/en/):** A scalable JavaScript runtime for server-side applications, known for its performance and efficiency.
-- **[Express.js](https://expressjs.com/):** Express.js is a popular Node.js web framework that provides a robust foundation for building scalable and efficient web applications.
-- **[Flask](https://flask.palletsprojects.com/en/3.0.x/):** A minimalist Python web framework for developing web applications with ease.
+- **[Node.js](https://nodejs.org/en/):** Scalable JavaScript runtime for server-side applications, known for its performance and efficiency.
+- **[Express.js](https://expressjs.com/):** Robust Node.js framework for building scalable web applications.
+- **[Flask](https://flask.palletsprojects.com/en/3.0.x/):** Minimalist Python web framework for creating API endpoints.
 
 ### Mapping
-- **[Leaflet](https://leafletjs.com/):** An open-source library for creating interactive maps, ideal for visualizing geographical data.
+- **[Leaflet](https://leafletjs.com/):** Open-source library for creating interactive maps, ideal for visualizing geographical data.
 
 ### Email Service
-- **[SMTP](https://www.smtp.com/resources/api-documentation/):** Standard protocol for sending emails, used for automating feedback acknowledgments.
+- **[SMTP](https://www.smtp.com/resources/api-documentation/):** Protocol for sending emails, used for automating feedback acknowledgments.
 
 ### Chatbot
-- **[Gemini API](https://ai.google.dev/):** Google’s advanced language and multimodal AI models for intelligent user interactions.
-- **[LangChain](https://www.langchain.com/):** Framework for integrating large language models into applications, offering tools for prompt engineering and model management.
-- **[Gunicorn](https://gunicorn.org/):** Gunicorn is a popular Python WSGI HTTP server that efficiently handles multiple web requests simultaneously.
+- **[Gemini API](https://ai.google.dev/):** Google’s advanced language and multimodal AI model for intelligent interactions.
+- **[LangChain](https://www.langchain.com/):** Framework for integrating large language models into applications, with tools for prompt engineering and model management.
+- **[Gunicorn](https://gunicorn.org/):** Popular Python WSGI HTTP server for efficiently handling web requests.
+
+### Visual Enhancements
+- The application is fully responsive and adapts to different screen sizes, ensuring an optimal user experience across mobile, tablet, and desktop devices.
+
+### Security
+- User data security is prioritized, with secure API endpoints and email verification ensuring that feedback is safely processed.
 
 ## Getting Started
 
@@ -40,6 +46,32 @@
 - **Python 3.x**: Ensure Python 3 is installed on your device.
 - **Node.js**: Ensure Node.js is installed for running the frontend.
 - **Flask**: Ensure Flask is installed for the backend API.
+
+#### APIs Setup
+
+- **Configure Feedback Functionality:**
+    - Create a new Gmail account.
+    - Go to the [Google Account Page](https://myaccount.google.com/).
+    - Search for "App Password" in the search bar and create one.
+    - Copy the generated app password.
+    - Create a `.env` file in the `backend` folder and add:
+    ```bash
+    SMTP_HOST=smtp.gmail.com
+    SMTP_PORT=587
+    SMTP_MAIL=<GMAIL_ACCOUNT>
+    SMTP_PASSWORD=<PASSWORD>
+    PORT=3100
+    ```
+
+- **Configure Chatbot Functionality:**
+    - Navigate to [Gemini API](https://aistudio.google.com/app/apikey) and generate your API key.
+    - Go to [LangChain Smith](https://smith.langchain.com/) and create an account.
+    - Generate a LangChain API key and save it.
+    - Create a `.env` file in the `backend/chatbot` folder and add:
+    ```bash
+    GOOGLE_API_KEY=<GEMINI_API>
+    LANGCHAIN_API_KEY=<LANGCHAIN_API>
+    ```
 
 ### Installation Instructions
 
@@ -50,7 +82,15 @@
     cd historic-capitals-india-btp2
     ```
 
-2. **Setup and Run the Backend Server:**
+2. **Setup and Run the Frontend:**
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+   Backend services are hosted on `render.com`, so the frontend will use those API calls directly. However, to work on the backend code and run it locally, follow the steps below:
+
+3. **Setup and Run the Backend Server:**
    - **Feedback Server:**
    ```bash
    cd backend
@@ -63,17 +103,11 @@
    python3 chatbot.py
    ```
 
-3. **Setup and Run the Frontend:**
-   ```bash
-   npm install
-   npm run dev
-   ```
-
 ## Backend APIs
 
 ### 1. Chat API
 
-This API allows you to send a message to the backend and receive a response generated by the LLM (Large Language Model).
+This API allows users to send a message and receive a response generated by the LLM.
 
 **Endpoint**:  
 `POST https://historic-capitals-india-btp2-1.onrender.com/chat`
@@ -83,7 +117,7 @@ This API allows you to send a message to the backend and receive a response gene
 - Headers: 
   - `Content-Type: application/json`
 - Body: 
-  - JSON object with a `message` field containing the text you want to send.
+  - JSON object with a `message` field containing the user query.
 
 **Example Request**:
 
@@ -94,7 +128,7 @@ curl -X POST https://historic-capitals-india-btp2-1.onrender.com/chat \
 ```
 
 **Response**:
-- A JSON object containing the reply from the LLM.
+- JSON object containing the reply from the LLM.
 
 **Example Response**:
 ```json
@@ -102,6 +136,7 @@ curl -X POST https://historic-capitals-india-btp2-1.onrender.com/chat \
   "reply": "This is the response from the model."
 }
 ```
+
 ## Contributing
 
 We welcome contributions to enhance this project. To contribute:
@@ -118,8 +153,8 @@ We welcome contributions to enhance this project. To contribute:
 
 ## License
 
-This project is licensed under the MIT License. For more details, please refer to the [LICENSE](LICENSE) file.
+This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For any inquiries or feedback, please contact us at [rayaan.khan@students.iiit.ac.in](mailto:rayaan.khan@students.iiit.ac.in).
+For inquiries or feedback, contact us at [rayaan.khan@students.iiit.ac.in](mailto:rayaan.khan@students.iiit.ac.in).
