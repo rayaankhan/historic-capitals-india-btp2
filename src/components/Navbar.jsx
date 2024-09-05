@@ -74,7 +74,7 @@ function Navbar() {
         <div className="container flex items-center justify-between py-2 pl-10 space-x-2 w-[100vw]">
           {/* 1st FlexBox - Logo*/}
           <div className="flex justify-evenly space-x-8  text-md md:text-2xl">
-            <a href="https://historicalindiancities.netlify.app/" className="flex justify-center">
+            <a href="https://historical-indian-cities.netlify.app/" className="flex justify-center">
               <img src={logo} alt="Logo" className="h-14 w-18 mr-2 rounded-lg" />
               <div className="flex flex-col justify-center">
                 <h1 className={`${textColor} leading-tight font-serif font-semibold`}>
