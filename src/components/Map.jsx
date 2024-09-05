@@ -1,26 +1,26 @@
 import { useState, useEffect, useRef } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css"; // Ensure Leaflet's CSS is imported
-import "leaflet/dist/images/marker-shadow.png";
+import "leaflet/dist/leaflet.css";
 import "leaflet/dist/images/marker-icon-2x.png";
-
-import markerIcon from "leaflet/dist/images/marker-icon-2x.png";
+import "leaflet/dist/images/marker-shadow.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
 const customIcon = new L.Icon({
-  iconUrl: markerIcon, // Path to your custom marker image
-  iconSize: [25, 41], // Custom icon size
-  iconAnchor: [12, 41], // Position of the icon relative to the coordinates
-  shadowUrl: markerShadow, // Default shadow
-  shadowSize: [41, 41], // Size of the shadow
-  shadowAnchor: [12, 41], // Anchor point of the shadow (align it with the iconAnchor)
-});
-
-function Map({ sharedVariable, setSharedVariable }) {
+    iconUrl: markerIcon, // Path to your custom marker image
+    iconSize: [25, 41], // Custom icon size
+    iconAnchor: [12, 41], // Position of the icon relative to the coordinates
+    shadowUrl: markerShadow, // Default shadow
+    shadowSize: [41, 41], // Size of the shadow
+    shadowAnchor: [12, 41], // Anchor point of the shadow (align it with the iconAnchor)
+  });
+  
+function Map({ selectedPeriod, sharedVariable, setSharedVariable }) {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
-  const [ancientData, setAncientData] = useState([]);
+  const [currData, setCurrData] = useState([]);
   const [location, setLocation] = useState({});
+  const [filteredData, setFilteredData] = useState([]); // For filtered search results
+  const [searchQuery, setSearchQuery] = useState(""); // State for search input
   const markersRef = useRef([]);
   const [mapCenter, setMapCenter] = useState([23.512, 80.329]);
   const [mapZoom, setMapZoom] = useState(4);
@@ -30,50 +30,54 @@ function Map({ sharedVariable, setSharedVariable }) {
   };
 
   useEffect(() => {
-    fetch("https://historic-capitals-india-btp2.onrender.com/ancient/location")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setLocation(data);
-      })
-      .catch((error) => {
-        console.error("There was a problem with the fetch operation:", error);
-      });
-  }, []); // Ensure this effect runs only once
+    const fetchData = async () => {
+      try {
+        let dataUrl = `https://historic-capitals-india-btp2.onrender.com/${selectedPeriod}/data`;
+        let locationUrl = `https://historic-capitals-india-btp2.onrender.com/${selectedPeriod}/location`;
 
-  useEffect(() => {
-    fetch("https://historic-capitals-india-btp2.onrender.com/ancient/data")
-      .then((response) => {
-        if (!response.ok) {
+        const [dataResponse, locationResponse] = await Promise.all([
+          fetch(dataUrl),
+          fetch(locationUrl),
+        ]);
+
+        if (!dataResponse.ok || !locationResponse.ok) {
           throw new Error("Network response was not ok");
         }
-        return response.json();
-      })
-      .then((data) => {
-        setAncientData(data.points);
-      })
-      .catch((error) => {
+
+        const data = await dataResponse.json();
+        const locData = await locationResponse.json();
+
+        setCurrData(data.points);
+        setFilteredData(data.points); 
+        setLocation(locData);
+      } catch (error) {
         console.error("There was a problem with the fetch operation:", error);
-      });
-  }, []); // Ensure this effect runs only once
+      }
+    };
+
+    fetchData();
+  }, [selectedPeriod]); 
 
   const handlePlaceClick = (index) => {
     const marker = markersRef.current[index];
     if (marker) {
-      // Check if marker is defined
       const latLng = marker.getLatLng();
-
       setMapCenter(latLng);
       setMapZoom(6);
-      setSharedVariable(ancientData[index])
+      setSharedVariable(filteredData[index]);
       marker.openPopup();
     } else {
       console.error("Marker not found at index:", index);
     }
+  };
+
+  const handleSearch = (event) => {
+    const query = event.target.value.toLowerCase();
+    setSearchQuery(query);
+    const filtered = currData.filter((place) =>
+      place.city.toLowerCase().includes(query)
+    );
+    setFilteredData(filtered);
   };
 
   // This component updates the map center and zoom
@@ -87,39 +91,34 @@ function Map({ sharedVariable, setSharedVariable }) {
 
   return (
     <div className="relative flex flex-col md:flex-row justify-center text-blue-400 mx-5 rounded-md md:space-x-3 md:space-y-0 h-[70vh]">
-      <div
-        className={`bg-slate-200 rounded-lg md:mb-0 md:w-9/12 w-full h-full align-middle overflow-hidden z-0`}
-      >
+      <div className="bg-slate-200 rounded-lg md:mb-0 md:w-9/12 w-full h-full align-middle overflow-hidden z-0">
         <MapContainer
           center={mapCenter}
           zoom={mapZoom}
           style={{ height: "700px", width: "100%" }}
         >
           <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <MapController center={mapCenter} zoom={mapZoom} />{" "}
-          {/* This ensures the map updates */}
-          {ancientData.map((place, index) => {
+          <MapController center={mapCenter} zoom={mapZoom} />
+          {filteredData.map((place, index) => {
             const coordinates = location[place.city];
             if (coordinates) {
-              // Check if coordinates exist
               return (
                 <Marker
                   key={index}
                   position={coordinates}
-                  icon={customIcon}
-                  ref={(el) => (markersRef.current[index] = el)} // Store marker reference
+                  ref={(el) => (markersRef.current[index] = el)}
                   eventHandlers={{
-                    click: () => handlePlaceClick(index), // Handle click event
+                    click: () => handlePlaceClick(index),
                   }}
                 >
                   <Popup>{place.city}</Popup>
                 </Marker>
               );
             }
-            return null; // Don't render a marker if coordinates are missing
+            return null;
           })}
         </MapContainer>
       </div>
@@ -131,19 +130,39 @@ function Map({ sharedVariable, setSharedVariable }) {
             : "hidden md:block"
         } justify-center`}
       >
-        <div className="flex justify-center text-xl font-bold py-4">
+        <div className="flex justify-center text-2xl font-bold font-serif py-4 underline">
           LOCATIONS LIST
         </div>
-        <button className="z-30 md:hidden absolute top-1/2 -left-10 transform -translate-y-1/2 bg-gray-900 text-white p-2 rounded" onClick={toggleSidebar}>{isSidebarVisible ? ">" : "<"}</button>
+        <button
+          className="z-30 md:hidden absolute top-1/2 -left-10 transform -translate-y-1/2 bg-gray-900 text-white p-2 rounded"
+          onClick={toggleSidebar}
+        >
+          {isSidebarVisible ? ">" : "<"}
+        </button>
         <div className="places-list px-4 overflow-y-auto h-5/6">
+          <input
+            type="text"
+            placeholder="Search locations..."
+            value={searchQuery}
+            onChange={handleSearch}
+            className="w-full p-2 mb-4 text-black rounded"
+          />
           <ul className="space-y-2 ">
-            {ancientData.map((place, index) => (
-              <li key={index} className="text-black hover:scale-105">
+            {filteredData.map((place, index) => (
+              <li
+                key={index}
+                className="text-black font-serif hover:scale-105 hover:bg-yellow-800/40 text-lg"
+              >
                 <a href="#" onClick={() => handlePlaceClick(index)}>
                   {index + 1}. {place.city}
                 </a>
               </li>
             ))}
+            {filteredData.length === 0 && (
+              <li className="text-black font-serif text-lg">
+                No results found
+              </li>
+            )}
           </ul>
         </div>
       </div>

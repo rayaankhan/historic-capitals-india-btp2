@@ -68,6 +68,138 @@ app.get('/ancient/location', (req, res) => {
   }
 )});
 
+
+
+
+
+app.get('/medieval/data', (req, res) => {
+  const filePath = path.join(__dirname, 'data', 'medieval', 'medieval.json');
+  
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error("Error reading the file:", err);
+      return res.status(500).send("Error fetching data");
+    }
+    
+    try {
+      const jsonData = JSON.parse(data);
+      res.json(jsonData);
+    } catch (parseError) {
+      console.error("Error parsing JSON:", parseError);
+      res.status(500).send("Error parsing data");
+    }
+  });
+});
+
+app.get('/medieval/location', (req, res) => {
+  const filePath = path.join(__dirname, 'data', 'medieval', 'location.json');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error("Error reading the file:", err);
+      return res.status(500).send("Error fetching data");
+    }
+
+    try {
+      const jsonData = JSON.parse(data);
+      res.json(jsonData);
+    } catch (parseError) {
+      console.error("Error parsing JSON:", parseError);
+      res.status(500).send("Error parsing data");
+    }
+  }
+)});
+
+
+
+
+
+app.get('/modern/data', (req, res) => {
+  const filePath = path.join(__dirname, 'data', 'modern', 'modern.json');
+  
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error("Error reading the file:", err);
+      return res.status(500).send("Error fetching data");
+    }
+    
+    try {
+      const jsonData = JSON.parse(data);
+      res.json(jsonData);
+    } catch (parseError) {
+      console.error("Error parsing JSON:", parseError);
+      res.status(500).send("Error parsing data");
+    }
+  });
+});
+
+app.get('/modern/location', (req, res) => {
+  const filePath = path.join(__dirname, 'data', 'modern', 'location.json');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error("Error reading the file:", err);
+      return res.status(500).send("Error fetching data");
+    }
+
+    try {
+      const jsonData = JSON.parse(data);
+      res.json(jsonData);
+    } catch (parseError) {
+      console.error("Error parsing JSON:", parseError);
+      res.status(500).send("Error parsing data");
+    }
+  }
+)});
+
+
+
+
+
+
+
+app.get('/all/data', (req, res) => {
+  const filePath = path.join(__dirname, 'data', 'all', 'all.json');
+  
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error("Error reading the file:", err);
+      return res.status(500).send("Error fetching data");
+    }
+    
+    try {
+      const jsonData = JSON.parse(data);
+      res.json(jsonData);
+    } catch (parseError) {
+      console.error("Error parsing JSON:", parseError);
+      res.status(500).send("Error parsing data");
+    }
+  });
+});
+
+app.get('/all/location', (req, res) => {
+  const filePath = path.join(__dirname, 'data', 'all', 'location.json');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error("Error reading the file:", err);
+      return res.status(500).send("Error fetching data");
+    }
+
+    try {
+      const jsonData = JSON.parse(data);
+      res.json(jsonData);
+    } catch (parseError) {
+      console.error("Error parsing JSON:", parseError);
+      res.status(500).send("Error parsing data");
+    }
+  }
+)});
+
+
+
+
+
 // Define routes
 app.post('/sendmail', (req, res) => {
   var { name, email, message } = req.body;

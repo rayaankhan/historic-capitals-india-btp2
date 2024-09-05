@@ -52,7 +52,7 @@ const Chatbot = () => {
       {!isOpen && (
         <button
           onClick={toggleChat}
-          className="fixed bottom-4 right-4 p-4 bg-yellow-800 text-white rounded-full shadow-lg hover:bg-yellow-900 transition-colors"
+          className="fixed bottom-4 right-4 p-4 bg-yellow-800 text-white rounded-r-xl rounded-tl-xl shadow-lg hover:bg-yellow-900 transition-colors"
         >
           <span className="text-xl">💬</span>
         </button>
@@ -89,7 +89,7 @@ const Chatbot = () => {
               value={message}
               onChange={handleChange}
               placeholder="Type a message..."
-              className="flex-1 p-2 border border-gray-300 rounded-md"
+              className="flex-1 p-1 border border-gray-300 rounded-md"
             />
             <button
               type="submit"

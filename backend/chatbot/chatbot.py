@@ -24,7 +24,7 @@ prompt=ChatPromptTemplate.from_messages(
 )
 
 llm=ChatGoogleGenerativeAI(
-    model="gemini-1.5-flash",
+    model="gemini-1.5-pro",
     temperature=0,
     max_tokens=None,
     timeout=None,
@@ -44,9 +44,6 @@ def get_response(input_text):
     with open("context.txt","a") as f:
         f.write("\n" + "user:" + input_text)
         f.write("\n" + "system:" + output.content)
-
-    with open("context.txt","r") as f:
-        a=f.read()
     return output
 
 # Define an API endpoint
