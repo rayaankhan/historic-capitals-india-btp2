@@ -109,6 +109,7 @@ function Map({ selectedPeriod, sharedVariable, setSharedVariable }) {
                 <Marker
                   key={index}
                   position={coordinates}
+                  icon={customIcon}
                   ref={(el) => (markersRef.current[index] = el)}
                   eventHandlers={{
                     click: () => handlePlaceClick(index),
