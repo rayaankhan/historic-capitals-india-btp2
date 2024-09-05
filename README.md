@@ -24,6 +24,7 @@
 
 ### Mapping
 - **[Leaflet](https://leafletjs.com/):** Open-source library for creating interactive maps, ideal for visualizing geographical data.
+- **[OpenStreet Map](https://www.openstreetmap.org/):** OpenStreetMap is a collaborative, open-source platform that enables users to create, edit, and distribute freely licensed geographic data.
 
 ### Email Service
 - **[SMTP](https://www.smtp.com/resources/api-documentation/):** Protocol for sending emails, used for automating feedback acknowledgments.
@@ -46,32 +47,6 @@
 - **Python 3.x**: Ensure Python 3 is installed on your device.
 - **Node.js**: Ensure Node.js is installed for running the frontend.
 - **Flask**: Ensure Flask is installed for the backend API.
-
-#### APIs Setup
-
-- **Configure Feedback Functionality:**
-    - Create a new Gmail account.
-    - Go to the [Google Account Page](https://myaccount.google.com/).
-    - Search for "App Password" in the search bar and create one.
-    - Copy the generated app password.
-    - Create a `.env` file in the `backend` folder and add:
-    ```bash
-    SMTP_HOST=smtp.gmail.com
-    SMTP_PORT=587
-    SMTP_MAIL=<GMAIL_ACCOUNT>
-    SMTP_PASSWORD=<PASSWORD>
-    PORT=3100
-    ```
-
-- **Configure Chatbot Functionality:**
-    - Navigate to [Gemini API](https://aistudio.google.com/app/apikey) and generate your API key.
-    - Go to [LangChain Smith](https://smith.langchain.com/) and create an account.
-    - Generate a LangChain API key and save it.
-    - Create a `.env` file in the `backend/chatbot` folder and add:
-    ```bash
-    GOOGLE_API_KEY=<GEMINI_API>
-    LANGCHAIN_API_KEY=<LANGCHAIN_API>
-    ```
 
 ### Installation Instructions
 
@@ -102,6 +77,30 @@
    pip3 install -r requirements.txt
    python3 chatbot.py
    ```
+
+4. **Configure Feedback Functionality**:
+    - Create a new Gmail account.
+    - Go to the [Google Account Page](https://myaccount.google.com/).
+    - Search for "App Password" in the search bar and create one.
+    - Copy the generated app password.
+    - Create a `.env` file in the `backend` folder and add:
+    ```bash
+    SMTP_HOST=smtp.gmail.com
+    SMTP_PORT=587
+    SMTP_MAIL=<GMAIL_ACCOUNT>
+    SMTP_PASSWORD=<PASSWORD>
+    PORT=3100
+    ```
+
+5. **Configure Chatbot Functionality**:
+    - Navigate to [Gemini API](https://aistudio.google.com/app/apikey) and generate your API key.
+    - Go to [LangChain Smith](https://smith.langchain.com/) and create an account.
+    - Generate a LangChain API key and save it.
+    - Create a `.env` file in the `backend/chatbot` folder and add:
+    ```bash
+    GOOGLE_API_KEY=<GEMINI_API>
+    LANGCHAIN_API_KEY=<LANGCHAIN_API>
+    ```
 
 ## Backend APIs
 
