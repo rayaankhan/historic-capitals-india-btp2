@@ -9,7 +9,6 @@ const bgImage2 = {
 };
 
 const HistContext = ({ sharedVariable }) => {
-  {{console.log(sharedVariable)}}
   return (
     <div style={bgImage2} className="overflow-hidden" id="HistContext">
       <section className="relative min-h-[100vh] min-w-[100vw]">
