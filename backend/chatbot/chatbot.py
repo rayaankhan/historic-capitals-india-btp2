@@ -31,10 +31,10 @@ llm=ChatGoogleGenerativeAI(
     max_retries=2,
 )
 
-with open("context.txt","r") as f:
-    context=f.read()
 
 def get_response(input_text):
+    with open("context.txt","r") as f:
+        context=f.read()
     output=llm.invoke(
         [
             SystemMessage(content=context),
@@ -42,13 +42,11 @@ def get_response(input_text):
         ]
     )
     with open("context.txt","a") as f:
-        print("writing on the context file")
         f.write("\n" + "user:" + input_text)
         f.write("\n" + "system:" + output.content)
 
     with open("context.txt","r") as f:
         a=f.read()
-        print("context:",a)
     return output
 
 # Define an API endpoint
