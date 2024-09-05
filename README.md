@@ -136,6 +136,49 @@ curl -X POST https://historic-capitals-india-btp2-1.onrender.com/chat \
 }
 ```
 
+### 2. Feedback Email API
+
+This API allows users to send feedback, which will trigger an automated acknowledgment email to the user.
+
+**Endpoint**:  
+`POST https://historic-capitals-india-btp2.onrender.com/sendmail`
+
+**Request Format**:
+- Method: `POST`
+- Headers: 
+  - `Content-Type: application/json`
+- Body: 
+  - JSON object with `name`, `email`, and `message` fields representing the user's feedback.
+
+**Example Request**:
+
+```bash
+curl -X POST https://historic-capitals-india-btp2.onrender.com/sendmail \
+  -H "Content-Type: application/json" \
+  -d '{
+        "name": "John Doe",
+        "email": "johndoe@example.com",
+        "message": "This is my feedback."
+      }'
+```
+
+**Response**:
+- JSON object containing the status of the email sending process.
+
+**Success Response**:
+```json
+{
+  "status": "Email sent"
+}
+```
+
+**Error Response**:
+```json
+{
+  "status": "Error sending email"
+}
+```
+
 ## Contributing
 
 We welcome contributions to enhance this project. To contribute:
