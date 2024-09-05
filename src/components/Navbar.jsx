@@ -88,7 +88,7 @@ function Navbar({ onSearch }) {
         <div className="container flex items-center justify-between py-2 pl-10 space-x-2 w-[100vw]">
           {/* 1st FlexBox - Logo*/}
           <div className="flex justify-evenly space-x-8  text-md md:text-2xl">
-            <a href="#" className="flex justify-center">
+            <a href="https://historical-indian-cities.netlify.app/" className="flex justify-center">
               <img
                 src={logo}
                 alt="Logo"
