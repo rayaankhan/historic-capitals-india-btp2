@@ -31,10 +31,10 @@ llm=ChatGoogleGenerativeAI(
     max_retries=2,
 )
 
+with open("context.txt","r") as f:
+    context=f.read()
 
 def get_response(input_text):
-    with open("context.txt","r") as f:
-        context=f.read()
     output=llm.invoke(
         [
             SystemMessage(content=context),
