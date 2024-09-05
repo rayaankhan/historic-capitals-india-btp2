@@ -1,8 +1,9 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import MeteorShower from './MeteorShower';
+import rayaanImg from '../assets/rayaan.png';
+import yashImg from '../assets/yash.png';
+import santhoshiniImg from '../assets/santhoshini.png';
 
 function Contact({ onClose }) {
   return (
@@ -23,43 +24,43 @@ function Contact({ onClose }) {
         </div>
         <div className="flex flex-col items-center my-3 md:flex-row md:justify-evenly p-2">
           <div className="flex-shrink-0 w-full m-2 md:w-1/3 h-[40vh] flex flex-col items-center bg-[#f2dcc4] rounded-lg shadow-lg py-5 px-0 transform transition-all hover:scale-105 border border-[#8b5e3c]">
-            <img src="src/assets/yash.png" alt="Yash Shivhare" className="rounded-full w-32 h-32 mb-4" />
+            <img src={yashImg} alt="Yash Shivhare" className="rounded-full w-32 h-32 mb-4" />
             <div className="text-center">
               <p className="font-semibold text-lg text-[#8b5e3c]">Yash Shivhare</p>
               <p className="text-sm text-[#6e4d31]">CSE IIITH</p>
             </div>
             <div className="flex mt-2 justify-center space-x-3">
-              <a href="https://www.linkedin.com/in/jessicaparker" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/yashshivhare007" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faLinkedin} className="text-xl hover:text-blue-700 transition-transform transform hover:scale-125" />
               </a>
               <a href="https://twitter.com/jessicaparker" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faTwitter} className="text-xl hover:text-blue-500 transition-transform transform hover:scale-125" />
               </a>
-              <a href="https://github.com/jessicaparker" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/YashShivhare007" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faGithub} className="text-xl hover:text-black transition-transform transform hover:scale-125" />
               </a>
             </div>
           </div>
           <div className="flex-shrink-0 w-full m-2 md:w-1/3 h-[40vh] flex flex-col items-center bg-[#f2dcc4] rounded-lg shadow-lg py-5 px-0 transform transition-all hover:scale-105 border border-[#8b5e3c]">
-            <img src="src/assets/rayaan.png" alt="Rayaan Khan" className="rounded-full w-32 h-32 mb-4" />
+            <img src={rayaanImg} alt="Rayaan Khan" className="rounded-full w-32 h-32 mb-4" />
             <div className="text-center">
               <p className="font-semibold text-lg text-[#8b5e3c]">Rayaan Khan</p>
               <p className="text-sm text-[#6e4d31]">CSE IIITH</p>
             </div>
             <div className="flex mt-2 justify-center space-x-3">
-              <a href="https://www.linkedin.com/in/kimcattrall" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/rayaank" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faLinkedin} className="text-xl hover:text-blue-700 transition-transform transform hover:scale-125" />
               </a>
-              <a href="https://twitter.com/kimcattrall" target="_blank" rel="noopener noreferrer">
+              <a href="https://x.com/RayaanKhan2003" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faTwitter} className="text-xl hover:text-blue-500 transition-transform transform hover:scale-125" />
               </a>
-              <a href="https://github.com/kimcattrall" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/rayaankhan" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faGithub} className="text-xl hover:text-black transition-transform transform hover:scale-125" />
               </a>
             </div>
           </div>
           <div className="flex-shrink-0 w-full m-2 md:w-1/3 h-[40vh] flex flex-col items-center bg-[#f2dcc4] rounded-lg shadow-lg py-5 px-0 transform transition-all hover:scale-105 border border-[#8b5e3c]">
-            <img src="src/assets/santhoshini.png" alt="Santhoshini Thota" className="rounded-full w-32 h-32 mb-4" />
+            <img src={santhoshiniImg} alt="Santhoshini Thota" className="rounded-full w-32 h-32 mb-4" />
             <div className="text-center">
               <p className="font-semibold text-lg text-[#8b5e3c]">Santhoshini Thota</p>
               <p className="text-sm text-[#6e4d31]">CSE IIITH</p>
