@@ -42,8 +42,13 @@ def get_response(input_text):
         ]
     )
     with open("context.txt","a") as f:
+        print("writing on the context file")
         f.write("\n" + "user:" + input_text)
         f.write("\n" + "system:" + output.content)
+
+    with open("context.txt","r") as f:
+        context=f.read()
+        print("context:",context)
     return output
 
 # Define an API endpoint
