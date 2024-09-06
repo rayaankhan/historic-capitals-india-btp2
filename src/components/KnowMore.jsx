@@ -19,7 +19,7 @@ const KnowMore = () => {
 
   return (
     <button
-      className="fixed bottom-4 left-4 p-4 bg-yellow-800 text-white text-xl rounded-l-lg rounded-tr-lg hover:bg-yellow-900 hover:scale-105 transition-transform font-serif"
+      className="fixed z-10 bottom-4 left-4 p-4 bg-yellow-800 text-white text-xl rounded-l-lg rounded-tr-lg hover:bg-yellow-900 hover:scale-105 transition-transform font-serif"
       onClick={handleClick}
     >
       {knowMoreState ? 'Know Less' : 'Know More'}

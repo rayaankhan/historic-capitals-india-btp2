@@ -5,7 +5,7 @@ import Logo1 from "../assets/logo1.png"; // Logo for the sidebar
 
 const Sidebar = ({ isOpen, toggleSidebar, toggleContact, toggleFeedback, toggleAbout }) => {
   return (
-    <div className={`fixed inset-0 bg-white z-20 flex flex-col overflow-y-auto transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
+    <div className={`fixed inset-0 bg-white z-30 flex flex-col overflow-y-auto transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
       <div className="flex items-center justify-between p-4 border-b">
         <img src={Logo1} alt="Logo" className="h-8" />
       </div>

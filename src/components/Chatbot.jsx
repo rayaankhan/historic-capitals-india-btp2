@@ -47,7 +47,7 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative z-20">
       {/* Chat Button */}
       {!isOpen && (
         <button

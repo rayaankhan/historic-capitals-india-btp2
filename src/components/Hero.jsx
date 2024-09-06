@@ -31,7 +31,7 @@ const Hero = ({sharedVariable,setSharedVariable}) => {
           <Map selectedPeriod={selectedPeriod} sharedVariable={sharedVariable} setSharedVariable={setSharedVariable} />
         </div>
         {/* Footer Content */}
-        <div className="z-20">
+        <div className="z-10">
           <Footer onPeriodChange={handlePeriodChange} />
         </div>
       </section>
