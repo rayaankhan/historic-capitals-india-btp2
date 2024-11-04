@@ -1,3 +1,6 @@
+- Note: This repository is not being updated now. The new location for this project is https://github.com/historical-capitals-india. This is the organisation created for this project so that it can be extended in the future if necessary.
+
+
 # Historical Capitals of India
 
 ## Project Overview - [Link](https://historical-indian-cities.netlify.app/)
